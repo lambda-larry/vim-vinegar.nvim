@@ -1,0 +1,26 @@
+*vinegar.txt*  Combine with netrw to create a delicious salad dressing
+
+Author: Larry
+Repo: https://github.com/lambda-larry/vim-vinegar.nvim
+
+                                                *vinegar*
+Vinegar extends netrw.  If you don't find what you are looking for here, check
+|netrw.txt|.
+
+MAPPINGS                                        *vinegar-mappings*
+
+                                                *vinegar--*
+-                       Open the parent directory of the current file.  This
+                        is the only mapping available outside of netrw
+                        buffers.
+
+                                                *vinegar-~*
+~                       Open $HOME.
+
+ACKNOWLEDGMENT
+
+Thank you Tim Pope (tpope), for making the original implementation of vinegar.
+Repo:    https://github.com/tpope/vim-vinegar
+
+
+ vim:tw=78:et:ft=help:norl:
