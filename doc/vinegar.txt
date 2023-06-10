@@ -17,6 +17,12 @@ MAPPINGS                                        *vinegar-mappings*
                                                 *vinegar-~*
 ~                       Open $HOME.
 
+                                                *vinegar-.*
+.                       Start a command line with the path to the file
+                        under the cursor.  Provide a [count] to include
+                        multiple files.
+
+
 ACKNOWLEDGMENT
 
 Thank you Tim Pope (tpope), for making the original implementation of vinegar.

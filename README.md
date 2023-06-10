@@ -13,6 +13,10 @@ Light lua reimplementation of [vim-vinegar][] by [tpope][].
 * All that annoying crap at the top is turned off, leaving you with nothing but
   a list of files. This is surprisingly disorienting, but ultimately very
   liberating. Press `I` to toggle until you adapt.
+* Press `.` on a file to pre-populate it at the end of a `:` command line.
+  This is great, for example, to quickly initiate a `:grep` of the file or
+  directory under the cursor.  Type `.!chmod +x` and
+  get `:!chmod +x path/to/file`.
 * Press `~` to go home.
 
 ## Installation

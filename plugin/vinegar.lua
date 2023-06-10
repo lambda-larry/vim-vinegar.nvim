@@ -26,9 +26,38 @@ end
 
 vim.keymap.set('n', '-', up)
 
+local function pre_populate_cmdline(range)
+  table.sort(range)
+  local lines = vim.fn.getline(range[1], range[2])
+  for i, line in ipairs(lines) do
+    lines[i] = vim.fn.fnameescape(line)
+  end
+
+  return ':<C-U> ' .. table.concat(lines, ' ') .. '<HOME>'
+end
+
 vim.api.nvim_create_autocmd('Filetype', {
   pattern  = 'netrw',
   callback = function()
-    vim.keymap.set('n', '~', home, { buffer = true })
+    local keymap_opt = {
+      buffer = true,
+      remap = false,
+    }
+    vim.keymap.set('n', '~', home, keymap_opt)
+
+    vim.keymap.set('n', '.', function()
+      local range = { vim.fn.line('.'), vim.fn.line('.') - 1 + vim.v.count1, }
+      return pre_populate_cmdline(range)
+    end, vim.tbl_extend('force', keymap_opt, {
+      expr = true,
+    }))
+
+    vim.keymap.set('v', '.', function()
+      local range = { vim.fn.line('v'), vim.fn.line('.'), }
+      return pre_populate_cmdline(range)
+    end, vim.tbl_extend('force', keymap_opt, {
+      expr = true,
+    }))
+
   end,
 })
